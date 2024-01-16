@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Jsonify</title>
+   <link rel="icon" type="image/x-icon" href="/favicon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1> Jsonify</h1>
+  <p>Jsonify: can help you match up brackets and braces, help you check your code, provide detailed error statements, upload files, download your json, and support file types (for both upload and download) other than .json and .txt
+  <div id="fullpage">
+  <div id="code"></div>
+    <button onclick='window.alert(test())'>Test JSON</button>
+    <br><br>
+    <button onclick="downloadjson()">Download your json</button><br><br>
+    Load file:
+    <input id = "files" onchange="loadfile()" type = 'file'>
+</div>
+  <br>
+  <br>
+  <br>
+  <button onclick="tut()">Show/hide tutorial</button>
+  <div style="display:none" id='tut'>
+  JSON:
+  json is written with objects and arrays. Objects are notated with curly braces. <br>
+  <code>{<br>
+    "car":"Tesla" <br>
+  }</code><br>
+  In this example, "car" is the key, the name. "Tesla" is the value corasponding to the key "car". <br>
+  Text is written as a string, between quotation marks. 
+  Numbers can just be written without quotation marks:<br>
+<code>{<br>
+    "version":6.2,<br>
+    1: "The number one",<br>
+    2: "The number two"<br>
+  }</code><br>
+  However, numbers and letters together need to be surrounded by quotation marks. An item that is surrounded in quotation marks is called a string. <br>
+  <code>{<br>
+    "car1":"Tesla",<br>
+    "car2":"Toyota",<br>
+    "numberOfCars": 2<br>
+  }</code><br>
+  Each pair of a key and a value needs to be seperated by a comma, as notated in the examples. <br><br>
+  Arrays are notated with square braces. 
+  <code>
+  [<br>
+    "item1",<br>
+    "item2",<br>
+    "item3"<br>
+  ]
+  </code><br>
+  Each item can be a number or string, and has to be seperated by a comma.<br>
+    <code>
+  [ <br>
+    1,<br>
+    2,<br>
+    3<br>
+  ]
+  </code><br>
+  Finally, you can have objecs and arrays inside of each other:
+  <code>
+  {<br>
+    "firstArray":[1, 2, 3]<br>
+    "firstObject":{"number":1}<br>
+    "arrayInsideObject":{"anotherArray":["hi", "hello"]}<br>
+    "objectInsideArray":[{"car":"Tesla"}, {"plane":"Boeing"}]<br>
+    "arrayInsideArray":[[1, 2, 3], ["one", "two", "three"]]<br>
+    "arrayInsideObjectInsideObject":{"anotherObject":{"arabic":[1, 2, 3], "english":["one", "two", "three"]}}
+  }
+  </code><br>
+  Or, <br>
+  <code>
+    [<br>
+    [1, 2, 3], <br>
+    [4, 5, 6], <br>
+    {"boeing":737}, <br>
+    ]
+  </code>
+
+    Debugging:
+    your error might look something like this:<br>
+    <code>SyntaxError: Unexpected token d in JSON at line 2, column 3</code>
+    It means that you have the token "d" in the second line, the third character of that line. Or, you might get an error without the line and column, which means that you probably forgot a curly brace or square bracket. 
+  </div>
+<codemirror>
+<script src="https://cdn.jsdelivr.net/npm/codemirror/lib/codemirror.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/codemirror/mode/json/json.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/codemirror/addon/fold/xml-fold.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/codemirror/addon/edit/matchbrackets.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror/addon/edit/matchtags.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror/addon/hint/show-hint.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror/addon/hint/html-hint.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror/addon/hint/css-hint.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror/addon/hint/javascript-hint.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror/addon/search/match-highlighter.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror/addon/lint/lint.min.js"></script>
+</codemirror>
+
+  <script src="script.js"></script>
+
+
+</body>
+
+</html>
